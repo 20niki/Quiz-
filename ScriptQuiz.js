@@ -91,14 +91,23 @@ Submit.addEventListener('click', () => {
 
     else {
 
-        ShowScore.innerHTML =
-            `
-                <h3>your scored ${score}/${quizDB.length}</h3>
-                <button class ="btn" onclick="location.reload()">PLAY Again</button> 
-                `;
-
-        ShowScore.classList.remove('ScoreArea');
-
+        if (score >= 2) {
+            ShowScore.innerHTML =
+                `<h3>your scored ${score}/${quizDB.length}👍</h3>
+                <button class ="btn" onclick="location.reload()">PLAY Again</button>`;
+            ShowScore.classList.remove('ScoreArea');
+            showQuestions.classList.add('show-questions');
+            scoreFull.classList.add('scoreFull');
+        }
+        else {
+            ShowScore.innerHTML =
+                `<h3>your scored ${score}/${quizDB.length}😒</h3>
+                <h2>Better Luck Next Time</h2>
+                <button class ="btn" onclick="location.reload()">PLAY Again</button>`;
+            ShowScore.classList.remove('ScoreArea');
+            showQuestions.classList.add('show-questions');
+            scoreFull.classList.add('scoreFull');
+        }
     }
 });
     // }
